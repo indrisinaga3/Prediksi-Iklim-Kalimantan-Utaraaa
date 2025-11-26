@@ -11,7 +11,7 @@ st.set_page_config(page_title="📊 Dashboard Prediksi Iklim", layout="wide")
 # ========== 1️⃣ LOAD DATA ==========
 @st.cache_data
 def load_data():
-    df = pd.read_excel("KALUT.xlsx", sheet_name="Data Harian - Table")
+    df = pd.read_excel("DATA KALIMANTAN UTARA.xlsx", sheet_name="Data Harian - Table")
     df = df.loc[:, ~df.columns.duplicated()]
     if "kecepatan_angin" in df.columns:
         df = df.rename(columns={"kecepatan_angin":"FF_X"})
@@ -22,7 +22,7 @@ def load_data():
 
 df = load_data()
 
-wilayah = "KALUT"
+wilayah = "Kalimantan Utara"
 st.title(f"🌦️ Dashboard Analisis & Prediksi Iklim — {wilayah}")
 
 
